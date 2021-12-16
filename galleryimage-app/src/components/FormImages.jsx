@@ -14,7 +14,10 @@ const FormImages = ({handleSubmit}) => {
                             className="w-100 m-2"
                         />
                     </label>
-                    <button type="submit" className="col-1 m-2">
+                    <button
+                        type="submit"
+                        className="btn btn-outline-info col-1 m-2"
+                    >
                         <span className="material-icons">search</span>
                     </button>
                 </div>

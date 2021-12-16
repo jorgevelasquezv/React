@@ -1,4 +1,5 @@
 import React from 'react'
+import path from '../assets/49132_search_images_icon.svg';
 
 const Header = () => {
     return (
@@ -10,13 +11,13 @@ const Header = () => {
                 <div className="container-fluid">
                     <p className="navbar-brand">
                         <img
-                            src="/docs/5.1/assets/brand/bootstrap-logo.svg"
+                            src={path}
                             alt=""
                             width={30}
                             height={24}
                             className="d-inline-block align-text-top"
-                        />
-                        {' '} Gallery Images App
+                        />{' '}
+                        Gallery Images App
                     </p>
                 </div>
             </nav>
