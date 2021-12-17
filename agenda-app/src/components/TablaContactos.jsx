@@ -1,6 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-const TablaContactos = ({contactos}) => {
+const TablaContactos = ({ contactos, dispatch }) => {
+    
+
+    const handleDelete = (id) => {
+        const actionDelete = {
+            type: 'delete',
+            payload: id,
+        };
+        dispatch(actionDelete);
+    };
+
     return (
         <table className="table">
             <thead>
@@ -11,8 +21,28 @@ const TablaContactos = ({contactos}) => {
                     <th>Accion</th>
                 </tr>
             </thead>
+            <tbody>
+                {contactos.map((contacto) => {
+                    const finalId = contacto.id.split('-');
+                    return (
+                        <tr key={contacto.id}>
+                            <th>{finalId[0]} </th>
+                            <td>{contacto.nombre}</td>
+                            <td>{contacto.numero}</td>
+                            <td>
+                                <button
+                                    className="btn btn-danger"
+                                    onClick={() => handleDelete(contacto.id)}
+                                >
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    );
+                })}
+            </tbody>
         </table>
-    )
-}
+    );
+};
 
-export default TablaContactos
+export default TablaContactos;
