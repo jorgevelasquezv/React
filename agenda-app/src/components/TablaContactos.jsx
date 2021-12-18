@@ -25,19 +25,19 @@ const TablaContactos = ({ contactos, dispatch }) => {
                 {contactos.map((contacto) => {
                     const finalId = contacto.id.split('-');
                     return (
-                        <tr key={contacto.id}>
-                            <th>{finalId[0]} </th>
-                            <td>{contacto.nombre}</td>
-                            <td>{contacto.numero}</td>
-                            <td>
-                                <button
-                                    className="btn btn-danger"
-                                    onClick={() => handleDelete(contacto.id)}
-                                >
-                                    Eliminar
-                                </button>
-                            </td>
-                        </tr>
+                      <tr key={contacto.id}>
+                        <th>{finalId[0]} </th>
+                        <td>{contacto.nombre}</td>
+                        <td>{contacto.numero}</td>
+                        <td>
+                          <button
+                            className="btn btn-outline-danger"
+                            onClick={() => handleDelete(contacto.id)}
+                          >
+                            <span className="material-icons">delete_outline</span>
+                          </button>
+                        </td>
+                      </tr>
                     );
                 })}
             </tbody>
