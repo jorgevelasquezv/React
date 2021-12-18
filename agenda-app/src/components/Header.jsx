@@ -1,18 +1,23 @@
 import React from 'react'
 
+import icon from '../assets/android-launchericon-48-48.png';
+
 const Header = () => {
     return (
-        <nav className="navbar navbar-dark" style={{ backgroundColor: '#2963E8' }} >
+        <nav
+            className="navbar navbar-dark"
+            style={{ backgroundColor: '#FE642E' }}
+        >
             <div className="container-fluid">
-                <p className="navbar-brand" >
+                <p className="navbar-brand">
                     <img
-                        src="/docs/5.1/assets/brand/bootstrap-logo.svg"
+                        src={icon}
                         alt=""
                         width={30}
                         height={24}
                         className="d-inline-block align-text-top"
-                    />
-                    {' '} Agenda Con React Reducer
+                    />{' '}
+                    Agenda Con React Reducer
                 </p>
             </div>
         </nav>

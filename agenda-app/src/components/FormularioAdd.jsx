@@ -20,6 +20,10 @@ const FormularioAdd = ({ dispatch }) => {
 
     const handleAdd = () => {
         dispatch(actionAdd);
+        setData({
+            nombre: '',
+            numero: '',
+        });
     };
 
     return (

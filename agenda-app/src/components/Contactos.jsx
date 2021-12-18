@@ -18,7 +18,7 @@ const Contactos = () => {
     const [formView, setFormView] = useState(false);
 
     return (
-        <div className="container mt-3">
+        <div className="container mt-3" style={{minHeight: '500px'}}>
             <button
                 className="btn btn-outline-success m-2"
                 onClick={() => setFormView(!formView)}
