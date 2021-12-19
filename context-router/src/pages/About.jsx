@@ -5,7 +5,7 @@ const About = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <div className="container text-center mt-5">
+    <div className="container text-center mt-5" style={{ minHeight: "350px" }}>
       <h1>About</h1>
       {!user ? (
         <h2> Please Login</h2>
@@ -15,7 +15,8 @@ const About = () => {
             Nombre: {user.data.first_name} {user.data.last_name}
           </h3>
           <h3>Email: {user.data.email}</h3>
-          <img className="m-3"
+          <img
+            className="m-3"
             src={user.data.avatar}
             alt={user.data.id}
             width="150px"

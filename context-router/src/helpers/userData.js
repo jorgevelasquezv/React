@@ -1,10 +1,10 @@
 export const userData = {
   data: {
-    id: 8,
-    email: "lindsay.ferguson@reqres.in",
-    first_name: "Lindsay",
-    last_name: "Ferguson",
-    avatar: "https://reqres.in/img/faces/8-image.jpg",
+    id: 12,
+    email: "rachel.howell@reqres.in",
+    first_name: "Rachel",
+    last_name: "Howell",
+    avatar: "https://reqres.in/img/faces/12-image.jpg",
   },
   support: {
     url: "https://reqres.in/#support-heading",

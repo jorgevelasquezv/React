@@ -15,7 +15,10 @@ const Home = () => {
     };
 
     return (
-      <div className="container text-center mt-5">
+      <div
+        className="container text-center mt-5 mb-5"
+        style={{ minHeight: "350px" }}
+      >
         <h2>Home </h2>
         {!user ? (
           <button className="btn btn-primary" onClick={handleLogin}>
