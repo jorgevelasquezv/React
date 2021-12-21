@@ -5,79 +5,79 @@ import { Characters } from "../models/Characters";
 import Card from "../components/Card";
 
 const SearchScreen = ({ history }) => {
-  const location = useLocation();
-  const { q = "" } = queryString.parse(location.search);
+    const location = useLocation();
+    const { q = "" } = queryString.parse(location.search);
 
-  const [inputValue, setInputValue] = useState(q);
+    const [inputValue, setInputValue] = useState(q);
 
-  const [characters, setCharacters] = useState([]);
+    const [characters, setCharacters] = useState([]);
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-  };
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setInputValue(value);
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    history.push(`?q=${inputValue}`);
-    console.log(characters);
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        history.push(`?q=${inputValue}`);
+        console.log(characters);
+    };
 
-  const getCharacter = () => {
-    if (inputValue.trim() !== "") {
-      const value = inputValue.toLocaleLowerCase();
-      const newCharacters = Characters.filter((character) =>
-        character.name.toLocaleLowerCase().includes(value)
-      );
+    const getCharacter = () => {
+        if (inputValue.trim() !== "") {
+            const value = inputValue.toLocaleLowerCase();
+            const newCharacters = Characters.filter((character) =>
+                character.name.toLocaleLowerCase().includes(value)
+            );
 
-      setCharacters(newCharacters);
-    } else {
-      setCharacters([]);
-    }
-  };
+            setCharacters(newCharacters);
+        } else {
+            setCharacters([]);
+        }
+    };
 
-  useEffect(() => {
-    getCharacter();
-  }, [q]);
-  return (
-    <div className="container">
-      <h1>Search Screen</h1>
-      <hr />
-      <div className="row">
-        <div className="col-6">
-          <h2>Search</h2>
-          <form onSubmit={handleSubmit}>
-            <label className="form-label w-100">
-              {" "}
-              Character:{" "}
-              <input
-                placeholder="Name Character"
-                type="text"
-                className="form-control"
-                autoComplete="off"
-                value={inputValue}
-                onChange={handleChange}
-              />
-            </label>
-            <button type="submit" className="btn btn-info w-100">
-              Serch
-            </button>
-          </form>
-        </div>
-        <div className="col-6">
-          <h2>Resulst: {characters.length} </h2>
-          {characters.length === 0 && (
-            <div className="alert alert-warning text-center">
-              Please Search Character
+    useEffect(() => {
+        getCharacter();
+    }, [q]);
+    return (
+        <div className="container">
+            <h1>Search Screen</h1>
+            <hr />
+            <div className="row">
+                <div className="col-6">
+                    <h2>Search</h2>
+                    <form onSubmit={handleSubmit}>
+                        <label className="form-label w-100">
+                            {" "}
+                            Character:{" "}
+                            <input
+                                placeholder="Name Character"
+                                type="text"
+                                className="form-control"
+                                autoComplete="off"
+                                value={inputValue}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <button type="submit" className="btn btn-info w-100">
+                            Serch
+                        </button>
+                    </form>
+                </div>
+                <div className="col-6">
+                    <h2>Resulst: {characters.length} </h2>
+                    {characters.length === 0 && (
+                        <div className="alert alert-warning text-center">
+                            Please Search Character
+                        </div>
+                    )}
+                    {characters.map((character) => (
+                        <Card key={character.id} {...character} />
+                    ))}
+                </div>
             </div>
-          )}
-          {characters.map((character) => (
-            <Card key={character.id} {...character} />
-          ))}
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default SearchScreen;

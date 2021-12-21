@@ -7,15 +7,19 @@ import PrivateRouter from "./PrivateRouter";
 import PublicRouter from "./PublicRouter";
 
 const LoginRouter = () => {
-  const { log } = useContext(AuthContext);
-  return (
-    <Router>
-      <Switch>
-        <PublicRouter path="/login" auth={log} component={LoginScreen} />
-        <PrivateRouter path="/" auth={log} component={AppRouter} />
-      </Switch>
-    </Router>
-  );
+    const { log } = useContext(AuthContext);
+    return (
+        <Router>
+            <Switch>
+                <PublicRouter
+                    path="/login"
+                    auth={log}
+                    component={LoginScreen}
+                />
+                <PrivateRouter path="/" auth={log} component={AppRouter} />
+            </Switch>
+        </Router>
+    );
 };
 
 export default LoginRouter;
