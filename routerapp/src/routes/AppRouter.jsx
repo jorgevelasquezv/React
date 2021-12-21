@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const CharacterScreen = lazy(() => import("../pages/CharacterScreen"));
@@ -25,6 +26,7 @@ const AppRouter = () => {
                     <Redirect to="/mens" />
                 </Switch>
             </Suspense>
+            <Footer />
         </>
     );
 };

@@ -15,7 +15,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className="navbar navbar-expand-lg navbar-dark"
+            className="navbar navbar-expand-lg navbar-dark sticky-top"
             style={{
                 backgroundColor: "#850E24",
                 borderBottom: "1px solid #777",
@@ -47,7 +47,8 @@ const Navbar = () => {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <NavLink
-                                activeClassName="active text-black"
+                                activeClassName="active"
+                                exact={true}
                                 className="nav-link"
                                 aria-current="page"
                                 to="/mens"
@@ -57,7 +58,7 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink
-                                activeClassName="active text-black"
+                                activeClassName={"active text-black"}
                                 className="nav-link"
                                 aria-current="page"
                                 to="/womens"
@@ -67,7 +68,7 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink
-                                activeClassName="active text-black"
+                                activeClassName={"active text-black"}
                                 className="nav-link"
                                 aria-current="page"
                                 to="/search"
@@ -76,13 +77,12 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                     </ul>
-                    <div className="d-flex">
-                        <button
-                            className="btn btn-danger"
-                            onClick={handleLogout}
-                        >
-                            Logout
-                        </button>
+                    <div className="d-flex ">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item" onClick={handleLogout}>
+                                Logout
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
