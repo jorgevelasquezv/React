@@ -17,17 +17,17 @@ const Navbar = () => {
         <nav
             className="navbar navbar-expand-lg navbar-dark"
             style={{
-                backgroundColor: "#FE642E",
+                backgroundColor: "#850E24",
                 borderBottom: "1px solid #777",
             }}
         >
             <div className="container-fluid">
                 <h2 className="navbar-brand">
                     <img
-                        src="/assets/android-launchericon-48-48.png"
+                        src="/assets/esfera4.png"
                         alt=""
                         width={30}
-                        height={24}
+                        height={30}
                         className="d-inline-block align-text-top"
                     />{" "}
                     DB App
