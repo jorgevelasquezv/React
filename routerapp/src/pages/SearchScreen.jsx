@@ -1,46 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import queryString from "query-string";
-import { Characters } from "../models/Characters";
 import Card from "../components/Card";
+import { useSearch } from "../hooks/useSearch";
 
-const SearchScreen = ({ history }) => {
-    const location = useLocation();
-    const { q = "" } = queryString.parse(location.search);
+const SearchScreen = () => {
 
-    const [inputValue, setInputValue] = useState(q);
+    const [characters, inputValue, handleChange, handleSubmit] = useSearch()
 
-    const [characters, setCharacters] = useState([]);
-
-    const handleChange = (e) => {
-        const value = e.target.value;
-        setInputValue(value);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        history.push(`?q=${inputValue}`);
-        console.log(characters);
-    };
-
-    const getCharacter = () => {
-        if (inputValue.trim() !== "") {
-            const value = inputValue.toLocaleLowerCase();
-            const newCharacters = Characters.filter((character) =>
-                character.name.toLocaleLowerCase().includes(value)
-            );
-
-            setCharacters(newCharacters);
-        } else {
-            setCharacters([]);
-        }
-    };
-
-    useEffect(() => {
-        getCharacter();
-    }, [q]);
     return (
-        <div className="container">
+        <div className="container mb-5 min-vh-100">
             <h1>Search Screen</h1>
             <hr />
             <div className="row">

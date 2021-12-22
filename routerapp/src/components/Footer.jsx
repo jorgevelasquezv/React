@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="text-center">
             <nav
                 className="navbar navbar-dark"
-                style={{ backgroundColor: "#850E24" }}
+                style={{ backgroundColor: "#821E24" }}
             >
                 <div className="container-fluid  d-flex justify-content-center">
                     <p className="text-white text-center col-12">

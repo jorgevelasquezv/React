@@ -15,11 +15,12 @@ const CharacterScreen = ({ history }) => {
     };
 
     return (
-        <div className="container row mt-5">
-            <div className="col-8">
+        <div className="container row mt-5 mb-5">
+            <div className=" col-8">
                 <img
-                    className="img-thumbnail"
-                    style={{ width: "70%", height: "400px" }}
+                    loading="lazy"
+                    className="card-img shadow p-3 mb-5 bg-body rounded border border-danger"
+                    style={{ width: "80%", height: "500px" }}
                     src={path}
                     alt={id}
                 />

@@ -8,6 +8,7 @@ const WomensScreen = () => {
     return (
         <div className="container mt-3">
             <h1>Womens Screen</h1>
+            <hr />
             <div className="row">
                 {womens.map((women) => (
                     <Card key={women.id} {...women} />

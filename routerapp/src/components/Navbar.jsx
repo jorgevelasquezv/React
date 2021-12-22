@@ -18,7 +18,7 @@ const Navbar = () => {
             className="navbar navbar-expand-lg navbar-dark sticky-top"
             style={{
                 backgroundColor: "#850E24",
-                borderBottom: "1px solid #777",
+                borderBottom: "1px solid #130",
             }}
         >
             <div className="container-fluid">
@@ -77,13 +77,17 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                     </ul>
-                    <div className="d-flex ">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item" onClick={handleLogout}>
-                                Logout
-                            </li>
-                        </ul>
-                    </div>
+                    <span className="navbar-text">
+                        <NavLink
+                            activeClassName={"active text-black"}
+                            className="nav-link"
+                            aria-current="page"
+                            onClick={handleLogout}
+                            to="/"
+                        >
+                            Logout
+                        </NavLink>
+                    </span>
                 </div>
             </div>
         </nav>
