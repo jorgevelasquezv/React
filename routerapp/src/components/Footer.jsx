@@ -12,8 +12,7 @@ const Footer = () => {
                         Jorge Velasquez &copy; {new Date().getFullYear()}
                     </p>
                     <p className="text-white text-center col-12">
-                        Agenda creada usando React con reducer y persistencia de
-                        datos en local storage
+                        Aplicacion tarjetas dragon ball usando React router, custom hook, context y reducer 
                     </p>
                     <a
                         href="https://github.com/jorgevelasquezv/React/tree/main/routerapp"

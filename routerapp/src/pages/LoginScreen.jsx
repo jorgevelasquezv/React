@@ -14,7 +14,11 @@ const LoginScreen = () => {
     };
     return (
         <div className="container mt-5 text-center">
-            <img src="/assets/animate.gif" alt="" />
+            <img
+                src="/assets/db3.gif"
+                alt=""
+                style={{ width: "35%", height: "400px" }}
+            />
             <h1 className="my-3">Login Screen</h1>
             <button className="btn btn-primary" onClick={handleLogin}>
                 Login
