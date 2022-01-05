@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react'
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import { Characters } from "../models/Characters";
 
 export const useSearch = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
 const location = useLocation();
 const { q = "" } = queryString.parse(location.search);
@@ -20,7 +20,7 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    history.push(`?q=${inputValue}`);
+    navigate(`?q=${inputValue}`);
 };
 
 const getCharacter = () => {

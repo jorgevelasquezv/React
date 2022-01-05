@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { AuthTypes } from "../types/authTypes";
 
 const LoginScreen = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const { dispatch } = useContext(AuthContext);
 
     const handleLogin = () => {
         dispatch({ type: AuthTypes.login });
-        history.push("/");
+        navigate("/");
     };
     return (
         <div className="container mt-5 text-center">

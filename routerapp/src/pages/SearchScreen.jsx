@@ -6,7 +6,7 @@ const SearchScreen = () => {
     const [characters, inputValue, handleChange, handleSubmit] = useSearch()
 
     return (
-        <div className="container mb-5 min-vh-100">
+        <div className="container mb-5 min-vh-100 mt-3">
             <h1>Search Screen</h1>
             <hr />
             <div className="row">
@@ -26,7 +26,7 @@ const SearchScreen = () => {
                             />
                         </label>
                         <button type="submit" className="btn btn-info w-100">
-                            Serch
+                            Search
                         </button>
                     </form>
                 </div>

@@ -1,9 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Characters } from "../models/Characters";
 
-const CharacterScreen = ({ history }) => {
+const CharacterScreen = () => {
     const { id } = useParams();
+
+    const navigate = useNavigate();
 
     const { type, name, description } = Characters.find(
         (character) => character.id === id
@@ -11,7 +13,7 @@ const CharacterScreen = ({ history }) => {
     const path = `/assets/${type}-${id}.png`;
 
     const handleBack = () => {
-        history.goBack();
+        navigate(-1);
     };
 
     return (
