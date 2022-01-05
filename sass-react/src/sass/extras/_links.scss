@@ -5,11 +5,22 @@ ul {
         padding: 10px;
         margin: 0px 10px;
         border-top: 1px solid #000;
-        background-color: $dark;
+        background-color: $primary;
+
+        &:hover {
+            background-color: darken($color: $primary, $amount: 10);
+            box-shadow: 3px 3px 3px $dark;
+        }
+
         a {
             text-decoration: none;
             font-size: 2rem;
             color: $white;
+
+            &:hover{
+                text-decoration: underline;
+                color: lighten($color: $secondary, $amount: 55);
+            }
         }
     }
 }
