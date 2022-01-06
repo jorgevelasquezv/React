@@ -1,10 +1,11 @@
 import React from 'react'
+import AuthRouter from './routers/AuthRouter'
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <AuthRouter></AuthRouter>
+    </>
   )
 }
 
