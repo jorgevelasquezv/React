@@ -1,11 +1,13 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 import AuthRouter from './routers/AuthRouter'
 
 const App = () => {
   return (
-    <>
-      <AuthRouter></AuthRouter>
-    </>
+    <Provider store={store} > 
+      <AuthRouter/>
+    </Provider>
   )
 }
 
