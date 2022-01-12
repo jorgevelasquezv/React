@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
+import AppScreen from '../pages/AppScreen';
 
 const AppRouter = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+    return <AppScreen />;
+};
 
-export default AppRouter
+export default AppRouter;
