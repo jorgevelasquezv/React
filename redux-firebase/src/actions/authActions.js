@@ -5,6 +5,7 @@ import {
     createUserWithEmailAndPassword,
     updateProfile,
     signInWithEmailAndPassword,
+    signOut,
 } from '../firebase/config-firebase';
 import { types } from '../types/types';
 
@@ -36,11 +37,7 @@ export const register = (email, password, username) => {
                 dispath(login(user.uid, user.displayName));
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(error, password);
-
-                // ..
+                console.log(error);
             });
     };
 };
@@ -54,3 +51,13 @@ export const login = (uid, displayName) => {
         },
     };
 };
+
+export const logout = () => {
+    return async (dispatch) => {
+        await signOut(auth)
+
+        dispatch({
+            type: types.logout,
+        })
+    }
+}

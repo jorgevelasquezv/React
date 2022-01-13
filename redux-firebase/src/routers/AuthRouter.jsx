@@ -1,5 +1,10 @@
-import { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import {
+    BrowserRouter as Router,
+    Navigate,
+    Route,
+    Routes,
+} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -8,31 +13,59 @@ import LoginScreen from '../pages/LoginScreen';
 import RegisterScreen from '../pages/RegisterScreen';
 import { login } from '../actions/authActions';
 import AppRouter from './AppRouter';
-import AppScreen from '../pages/AppScreen';
+import PublicRouter from './PublicRouter';
+import PrivateRouter from './PrivateRouter';
 
 const AuthRouter = () => {
-
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const auth = getAuth();
+
+    const [log, setLog] = useState(false)
+
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                dispatch(login(user.uid, user.displayName))
+                setLog(true)
+                dispatch(login(user.uid, user.displayName));
             } else {
+                setLog(false)
             }
         });
-    }, [dispatch]);
+    }, []);
     return (
         <div>
-        
-        <Router>
-            <Routes>
-                <Route end path="/login" element={<LoginScreen />} />
-                <Route end path="/register" element={<RegisterScreen />} />
-                <Route path="/app" element={<AppRouter></AppRouter>} />
-                
+            <Router>
+                <Routes>
+                    <Route
+                        end
+                        path="/login"
+                        element={
+                            <PublicRouter log={log} element={<LoginScreen />} />
+                        }
+                    />
+                    <Route
+                        end
+                        path="/register"
+                        element={
+                            <PublicRouter
+                                log={log}
+                                element={<RegisterScreen />}
+                            />
+                        }
+                    />
+                    <Route
+                        end
+                        path="/app"
+                        element={
+                            <PrivateRouter log={log} element={<AppRouter />} />
+                        }
+                    />
+                    <Route
+                        path="/*"
+                        element={<Navigate to="/login" replace />}
+                    />
                 </Routes>
-        </Router>
+            </Router>
         </div>
     );
 };

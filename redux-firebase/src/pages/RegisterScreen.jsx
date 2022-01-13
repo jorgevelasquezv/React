@@ -42,7 +42,7 @@ const RegisterScreen = () => {
 
     return (
         <div className="container">
-            <h3>Login</h3>
+            <h3>Register</h3>
             <hr />
 
             <div className="row container">

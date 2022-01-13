@@ -1,6 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { logout } from '../actions/authActions';
 
 const Navbar = () => {
+
+    const dispatch = useDispatch()
+    const handleLogout = () => {
+        dispatch(logout())
+    }
     return (
         <nav className="blue">
             <div className="nav-wrapper">
@@ -9,7 +16,7 @@ const Navbar = () => {
                 </span>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li>
-                        <button className="btn red waves-effect waves-ligh">Logout</button>
+                        <button onClick={handleLogout} className="btn red waves-effect waves-ligh">Logout</button>
                     </li>
                 </ul>
             </div>
