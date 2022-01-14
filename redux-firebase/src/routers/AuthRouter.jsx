@@ -15,6 +15,7 @@ import { login } from '../actions/authActions';
 import AppRouter from './AppRouter';
 import PublicRouter from './PublicRouter';
 import PrivateRouter from './PrivateRouter';
+import { loadData } from '../helpers/loadData';
 
 const AuthRouter = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const AuthRouter = () => {
             if (user) {
                 setLog(true)
                 dispatch(login(user.uid, user.displayName));
+                loadData(user.uid)
             } else {
                 setLog(false)
             }
