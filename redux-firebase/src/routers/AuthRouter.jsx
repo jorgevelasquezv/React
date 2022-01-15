@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
     Navigate,
@@ -16,6 +16,7 @@ import AppRouter from './AppRouter';
 import PublicRouter from './PublicRouter';
 import PrivateRouter from './PrivateRouter';
 import { loadData } from '../helpers/loadData';
+import { leerRegistros } from '../actions/nominaActions';
 
 const AuthRouter = () => {
     const dispatch = useDispatch();
@@ -24,15 +25,17 @@ const AuthRouter = () => {
     const [log, setLog] = useState(false)
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setLog(true)
-                dispatch(login(user.uid, user.displayName));
-                loadData(user.uid)
-            } else {
-                setLog(false)
-            }
-        });
+        !log &&
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    setLog(true);
+                    dispatch(login(user.uid, user.displayName));
+                    const nominaData = await loadData(user.uid);
+                    dispatch(leerRegistros(nominaData));
+                } else {
+                    setLog(false);
+                }
+            });
     }, []);
     return (
         <div>

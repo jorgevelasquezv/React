@@ -1,22 +1,43 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import FormApp from '../components/FormApp'
+import Element from '../components/Element'
+import FormApp from '../components/FormAdd'
 import Navbar from '../components/Navbar'
 
 const AppScreen = () => {
 
     const name = useSelector(state => state.auth.displayName)
+    const data = useSelector(state => state.nomina.data)
     
     return (
         <>
             <Navbar />
             <div className="container">
-                <h1 className="center"> Hola { name }</h1>
+                <h1 className="center"> Hola {name}</h1>
                 <hr />
-                <FormApp/>
+                <FormApp />
+                <table className="">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Cantidad</th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>  
+                    <tbody>
+                        {data.map((elemento) => {
+                            return (
+                                <tr key={elemento.id}>
+                                    <Element data={elemento} />
+                                </tr>
+                            ); 
+                        }) }
+                        
+                    </tbody>
+                </table>
             </div>
         </>
-    )
+    );
 }
 
 export default AppScreen

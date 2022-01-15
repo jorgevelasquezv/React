@@ -12,8 +12,9 @@ import { types } from '../types/types';
 
 export const googleLogin = () => {
     return (dispatch) => {
-        signInWithPopup(auth, googleAuthProvider).then(({ user }) =>
-            dispatch(login(user))
+        signInWithPopup(auth, googleAuthProvider).then(({ user }) => {
+            const { uid, displayName} = user
+            dispatch(login(uid, displayName))}
         );
     };
 };

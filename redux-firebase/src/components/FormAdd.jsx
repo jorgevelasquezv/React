@@ -20,28 +20,38 @@ const FormApp = () => {
     const handleSave = (e) => {
         const cantidadFinal = horas * precioHora;
         dispatch(crearRegistro(cantidadFinal));
+        setCantidadPago({
+            horas: 0,
+            precioHora: 0,
+        });
     };
     return (
         <div>
             <button className="btn green" onClick={handleAdd}>
-                {viewForm ? 'Agregar' : 'Cerrar'}
+                {!viewForm ? 'Agregar' : 'Cerrar'}
             </button>
             {viewForm && (
                 <>
-                    <input
-                        type="text"
-                        placeholder="Ingresa cantidad de pago por hora"
-                        value={precioHora}
-                        onChange={handleChange}
-                        name="precioHora"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Ingresa cantidad de horas"
-                        value={horas}
-                        onChange={handleChange}
-                        name="horas"
-                    />
+                    <div className="input-field col s12">
+                        <label htmlFor="icon_prefix1">Pago por hora</label>
+                        <input
+                            id="icon_prefix1"
+                            type="text"
+                            value={precioHora}
+                            onChange={handleChange}
+                            name="precioHora"
+                        />
+                    </div>
+                    <div className="input-field col s12">
+                        <label htmlFor="icon_prefix2">Horas trabajadas</label>
+                        <input
+                            id="icon_prefix2"
+                            type="text"
+                            value={horas}
+                            onChange={handleChange}
+                            name="horas"
+                        />
+                    </div>
                     <button className="btn purple" onClick={handleSave}>
                         Calcular y Guardar
                     </button>

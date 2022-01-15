@@ -8,18 +8,61 @@
  */
 
 import { db } from '../firebase/config-firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, doc, addDoc, getDoc, deleteDoc } from 'firebase/firestore';
+import { types } from '../types/types';
 
-export const crearRegistro = (pago) => {
+export const crearRegistro = (pagos) => {
     return async (dispatch, getState) => {
         const { uid } = getState().auth;
         const datos = {
             fecha: new Date(),
-            pago,
+            pago: pagos,
         };
         const referencia = await addDoc(
             collection(db, `${uid}/nominas/nomina/`),
             datos
         );
+
+        const document = await getDoc(referencia)
+        const id = document.id
+        const data = await document.data()
+        const { fecha, pago} = data
+        dispatch(crear({ id, fecha, pago }));
+        
     };
 };
+
+export const leerRegistros = (data) => {
+    return {
+        type: types.nominaRead,
+        payload: data
+    }
+}
+
+export const crear = (data) => {
+    return { 
+        type: types.nominaAdd,
+        payload: data
+    }
+}
+
+export const borrarRegistro = (id) => {
+    return async (dispatch, getState) => { 
+        const {uid} = getState().auth;
+        await deleteDoc(doc(db, `${uid}/nominas/nomina/${id}`));
+        dispatch(borrar(id))
+    }
+}
+
+export const borrar = (id) => {
+    return { 
+        type: types.nominaDelete,
+        payload: id
+    }
+}
+
+export const limpiar = () => {
+    return {
+        type: types.nominaClean
+    }
+}
