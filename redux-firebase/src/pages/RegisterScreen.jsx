@@ -22,7 +22,11 @@ const RegisterScreen = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        if (email.trim() === '' || !email.trim().includes('@')) {
+        if (
+            email.trim() === '' ||
+            !email.trim().includes('@', 1 - email.length) ||
+            !email.trim().includes('.', email.indexOf('@') + 1) || email.trim().slice(email.trim().indexOf('.')).length < 3
+        ) {
             return;
         }
 
@@ -41,7 +45,7 @@ const RegisterScreen = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container animate__animated animate__fadeInBottomRight">
             <h3>Register</h3>
             <hr />
 

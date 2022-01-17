@@ -12,7 +12,7 @@ const AppScreen = () => {
     return (
         <>
             <Navbar />
-            <div className="container">
+            <div className="container animate__animated animate__zoomIn">
                 <h1 className="center"> Hola {name}</h1>
                 <hr />
                 <FormApp />
@@ -23,16 +23,18 @@ const AppScreen = () => {
                             <th>Cantidad</th>
                             <th>Borrar</th>
                         </tr>
-                    </thead>  
+                    </thead>
                     <tbody>
                         {data.map((elemento) => {
                             return (
-                                <tr key={elemento.id}>
+                                <tr
+                                    key={elemento.id}
+                                    className="animate__animated animate__fadeInUp"
+                                >
                                     <Element data={elemento} />
                                 </tr>
-                            ); 
-                        }) }
-                        
+                            );
+                        })}
                     </tbody>
                 </table>
             </div>

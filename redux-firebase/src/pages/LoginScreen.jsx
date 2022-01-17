@@ -40,7 +40,7 @@ const LoginScreen = () => {
         dispatch(emailAndPasswordLogin(email, password));
     }
     return (
-        <div className="container">
+        <div className="container animate__animated animate__fadeInBottomRight">
             <h3>Login</h3>
             <hr />
 

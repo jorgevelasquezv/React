@@ -7,22 +7,27 @@ const FormApp = () => {
 
     const [viewForm, setViewForm] = useState(false);
     const [cantidadPago, setCantidadPago] = useState({
-        horas: 0,
-        precioHora: 0,
+        horas: '',
+        precioHora: '',
     });
     const { horas, precioHora } = cantidadPago;
+
+    const habilitarBoton = () => {
+        return horas > 0 && precioHora > 0 ? false : true;
+    };
+
     const handleAdd = () => {
         setViewForm(!viewForm);
     };
     const handleChange = (e) => {
         setCantidadPago({ ...cantidadPago, [e.target.name]: e.target.value });
     };
-    const handleSave = (e) => {
+    const handleSave = () => {
         const cantidadFinal = horas * precioHora;
         dispatch(crearRegistro(cantidadFinal));
         setCantidadPago({
-            horas: 0,
-            precioHora: 0,
+            horas: '',
+            precioHora: '',
         });
     };
     return (
@@ -31,12 +36,12 @@ const FormApp = () => {
                 {!viewForm ? 'Agregar' : 'Cerrar'}
             </button>
             {viewForm && (
-                <>
+                <div className="animate__animated animate__fadeInDown">
                     <div className="input-field col s12">
                         <label htmlFor="icon_prefix1">Pago por hora</label>
                         <input
                             id="icon_prefix1"
-                            type="text"
+                            type="number"
                             value={precioHora}
                             onChange={handleChange}
                             name="precioHora"
@@ -46,16 +51,20 @@ const FormApp = () => {
                         <label htmlFor="icon_prefix2">Horas trabajadas</label>
                         <input
                             id="icon_prefix2"
-                            type="text"
+                            type="number"
                             value={horas}
                             onChange={handleChange}
                             name="horas"
                         />
                     </div>
-                    <button className="btn purple" onClick={handleSave}>
+                    <button
+                        className="btn purple"
+                        disabled={habilitarBoton()}
+                        onClick={handleSave}
+                    >
                         Calcular y Guardar
                     </button>
-                </>
+                </div>
             )}
         </div>
     );
