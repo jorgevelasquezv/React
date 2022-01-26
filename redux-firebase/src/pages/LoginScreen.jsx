@@ -1,44 +1,12 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
 import { Link } from 'react-router-dom';
 import GoogleButton from 'react-google-button';
 
-import { googleLogin, emailAndPasswordLogin } from '../actions/authActions';
+import { useLoginScreen } from '../hooks/useLoginScreen';
 
 const LoginScreen = () => {
+    const [handleChange, handleLogin, handleEmailLogin, email, password] =
+        useLoginScreen();
 
-    const [data, setData] = useState({
-        email: '',
-        password: '',
-    });
-
-    const { email, password } = data;
-
-    const handleChange = (e) => {
-        const value = e.target.value;
-
-        setData({ ...data, [e.target.name]: value });
-    };
-
-    const dispatch = useDispatch()
-    const handleLogin = () => {
-        dispatch(googleLogin())
-    }
-
-    const handleEmailLogin = (e) => {
-        e.preventDefault()
-
-        if (email.trim() === '' || !email.trim().includes('@')) {
-            return;
-        }
-
-        if (password.trim().length < 6) {
-            return;
-        }
-
-        dispatch(emailAndPasswordLogin(email, password));
-    }
     return (
         <div className="container animate__animated animate__fadeInBottomRight">
             <h3>Login</h3>
