@@ -7,10 +7,10 @@ const RegisterScreen = () => {
 
     return (
         <div className="container mt-5 animate__animated animate__fadeInBottomRight">
-            <h3>Register</h3>
+            <h1>Register</h1>
             <hr />
 
-            <div className="mt-5">
+            <div className="formulario container mt-5">
                 <form onSubmit={handleRegister} className="col s12">
                     <div className="mb-3">
                         <label
@@ -20,12 +20,14 @@ const RegisterScreen = () => {
                             Email
                         </label>
                         <div className="row mb-3">
-                            <i className="material-icons prefix col-md-1">email</i>
+                            <i className="material-icons prefix col-md-1">
+                                email
+                            </i>
                             <input
                                 onChange={handleChange}
                                 value={email}
                                 id="icon_prefix2"
-                                className="col-md-8"
+                                className=" entrada col-md-11"
                                 type="email"
                                 name="email"
                             />
@@ -44,7 +46,7 @@ const RegisterScreen = () => {
                                 onChange={handleChange}
                                 value={username}
                                 id="icon_prefix3"
-                                className="col-md-8"
+                                className="entrada col-md-11"
                                 type="text"
                                 name="username"
                             />
@@ -64,7 +66,7 @@ const RegisterScreen = () => {
                                 onChange={handleChange}
                                 value={password}
                                 id="icon_prefix4"
-                                className="col-md-8"
+                                className="entrada col-md-11"
                                 type="password"
                                 name="password"
                             />
@@ -83,7 +85,7 @@ const RegisterScreen = () => {
                                 onChange={handleChange}
                                 value={password2}
                                 id="icon_prefix5"
-                                className="col-md-8"
+                                className="entrada col-md-11"
                                 type="password"
                                 name="password2"
                             />

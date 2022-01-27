@@ -3,16 +3,18 @@ import GoogleButton from 'react-google-button';
 
 import { useLoginScreen } from '../hooks/useLoginScreen';
 
+import '../assets/LoginRegisterScreen.css'
+
 const LoginScreen = () => {
     const [handleChange, handleLogin, handleEmailLogin, email, password] =
         useLoginScreen();
 
     return (
         <div className="container mt-5 animate__animated animate__fadeInBottomRight">
-            <h3>Login</h3>
+            <h1>Login</h1>
             <hr />
 
-            <div className="mt-5" >
+            <div className="formulario container mt-5" >
                 <form onSubmit={handleEmailLogin}>
                     <div className="mb-3">
                         <label htmlFor="icon_prefix2" className="form-label">
@@ -27,7 +29,7 @@ const LoginScreen = () => {
                                 value={email}
                                 name="email"
                                 id="icon_prefix2"
-                                className="col-md-8"
+                                className="entrada col-md-11"
                                 type="text"
                             />
                         </div>
@@ -45,8 +47,9 @@ const LoginScreen = () => {
                                 value={password}
                                 name="password"
                                 id="icon_prefix3"
-                                className="col-md-8"
+                                className="entrada col-md-11"
                                 type="password"
+                                
                             />
                         </div>
                     </div>
