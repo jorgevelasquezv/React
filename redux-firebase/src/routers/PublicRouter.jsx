@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate} from 'react-router-dom';
 
 const PublicRouter = ({ log, element }) => {
     return log ? <Navigate to="/app" replace /> : element;

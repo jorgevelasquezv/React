@@ -36,7 +36,7 @@ const AuthRouter = () => {
                     setLog(false);
                 }
             });
-    }, []);
+    }, [auth, dispatch, log]);
     return (
         <div>
             <Router>
