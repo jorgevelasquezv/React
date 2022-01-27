@@ -32,33 +32,44 @@ const FormApp = () => {
     };
     return (
         <div>
-            <button className="btn green" onClick={handleAdd}>
+            <button className="btn btn-success" onClick={handleAdd}>
                 {!viewForm ? 'Agregar' : 'Cerrar'}
             </button>
             {viewForm && (
                 <div className="animate__animated animate__fadeInDown">
-                    <div className="input-field col s12">
-                        <label htmlFor="icon_prefix1">Pago por hora</label>
+                    <label htmlFor="icon_prefix1" className="form-label mt-3">
+                        Pago por hora
+                    </label>
+                    <div className="input-group mb-3 ">
                         <input
-                            id="icon_prefix1"
                             type="number"
+                            className="form-control"
+                            id="icon_prefix1"
+                            aria-describedby="basic-addon3"
                             value={precioHora}
                             onChange={handleChange}
                             name="precioHora"
                         />
                     </div>
-                    <div className="input-field col s12">
-                        <label htmlFor="icon_prefix2">Horas trabajadas</label>
-                        <input
-                            id="icon_prefix2"
-                            type="number"
-                            value={horas}
-                            onChange={handleChange}
-                            name="horas"
-                        />
+                    <div className="input-group mb-3">
+                        <label htmlFor="icon_prefix2" className="form-label">
+                            Horas trabajadas
+                        </label>
+                        <div className="input-group mb-3 ">
+                            <input
+                                id="icon_prefix2"
+                                aria-describedby="basic-addon3"
+                                className="form-control"
+                                type="number"
+                                value={horas}
+                                onChange={handleChange}
+                                name="horas"
+                            />
+                        </div>
                     </div>
                     <button
-                        className="btn purple"
+                        type="button"
+                        className="btn btn-primary"
                         disabled={habilitarBoton()}
                         onClick={handleSave}
                     >

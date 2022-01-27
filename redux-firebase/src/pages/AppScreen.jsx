@@ -13,10 +13,10 @@ const AppScreen = () => {
         <>
             <Navbar />
             <div className="container animate__animated animate__zoomIn">
-                <h1 className="center"> Hola {name}</h1>
+                <h1 className="text-center mt-3"> Hola {name}</h1>
                 <hr />
                 <FormApp />
-                <table className="">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Fecha</th>

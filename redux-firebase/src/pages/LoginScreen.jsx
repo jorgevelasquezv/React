@@ -8,42 +8,57 @@ const LoginScreen = () => {
         useLoginScreen();
 
     return (
-        <div className="container animate__animated animate__fadeInBottomRight">
+        <div className="container mt-5 animate__animated animate__fadeInBottomRight">
             <h3>Login</h3>
             <hr />
 
-            <div className="row container">
-                <form onSubmit={handleEmailLogin} className="col s12">
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <i className="material-icons prefix">email</i>
+            <div className="mt-5" >
+                <form onSubmit={handleEmailLogin}>
+                    <div className="mb-3">
+                        <label htmlFor="icon_prefix2" className="form-label">
+                            Email
+                        </label>
+                        <div className="row">
+                            <i className="material-icons icon_prefix2 col-md-1">
+                                email
+                            </i>
                             <input
                                 onChange={handleChange}
                                 value={email}
                                 name="email"
                                 id="icon_prefix2"
-                                className="materialize-textarea"
+                                className="col-md-8"
                                 type="text"
                             />
-                            <label htmlFor="icon_prefix2">Email</label>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <i className="material-icons prefix">vpn_key</i>
+                    <div className="mb-3">
+                        <label htmlFor="icon_prefix3" className="form-label">
+                            Password
+                        </label>
+                        <div className="row">
+                            <i className="material-icons icon_prefix3 col-md-1">
+                                vpn_key
+                            </i>
                             <input
                                 onChange={handleChange}
                                 value={password}
                                 name="password"
                                 id="icon_prefix3"
-                                className="materialize-textarea"
+                                className="col-md-8"
                                 type="password"
                             />
-                            <label htmlFor="icon_prefix3">Password</label>
                         </div>
                     </div>
 
-                    <button className="btn blue" type="submit">
+                    <button
+                        className="btn btn-success"
+                        type="submit"
+                        style={{
+                            backgroundColor: '#4285F4',
+                            borderColor: '#4285F4',
+                        }}
+                    >
                         Enviar
                     </button>
 

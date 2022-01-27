@@ -6,70 +6,98 @@ const RegisterScreen = () => {
         useRegisterScreen();
 
     return (
-        <div className="container animate__animated animate__fadeInBottomRight">
+        <div className="container mt-5 animate__animated animate__fadeInBottomRight">
             <h3>Register</h3>
             <hr />
 
-            <div className="row container">
+            <div className="mt-5">
                 <form onSubmit={handleRegister} className="col s12">
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <i className="material-icons prefix">email</i>
+                    <div className="mb-3">
+                        <label
+                            htmlFor="icon_prefix2"
+                            className="form-label mb-3"
+                        >
+                            Email
+                        </label>
+                        <div className="row mb-3">
+                            <i className="material-icons prefix col-md-1">email</i>
                             <input
                                 onChange={handleChange}
                                 value={email}
                                 id="icon_prefix2"
-                                className="materialize-textarea"
+                                className="col-md-8"
                                 type="email"
                                 name="email"
                             />
-                            <label htmlFor="icon_prefix2">Email</label>
                         </div>
-                        <div className="input-field col s12">
-                            <i className="material-icons prefix">
+                        <label
+                            htmlFor="icon_prefix3"
+                            className="form-label mb-3"
+                        >
+                            Username
+                        </label>
+                        <div className="row mb-3">
+                            <i className="material-icons prefix col-md-1">
                                 assignment_ind
                             </i>
                             <input
                                 onChange={handleChange}
                                 value={username}
                                 id="icon_prefix3"
-                                className="materialize-textarea"
+                                className="col-md-8"
                                 type="text"
                                 name="username"
                             />
-                            <label htmlFor="icon_prefix3">Username</label>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <i className="material-icons prefix">vpn_key</i>
+
+                        <label
+                            htmlFor="icon_prefix4"
+                            className="form-label mb-3"
+                        >
+                            Password
+                        </label>
+                        <div className="row mb-3">
+                            <i className="material-icons prefix col-md-1">
+                                vpn_key
+                            </i>
                             <input
                                 onChange={handleChange}
                                 value={password}
                                 id="icon_prefix4"
-                                className="materialize-textarea"
+                                className="col-md-8"
                                 type="password"
                                 name="password"
                             />
-                            <label htmlFor="icon_prefix4">Password</label>
                         </div>
-                        <div className="input-field col s12">
-                            <i className="material-icons prefix">vpn_key</i>
+                        <label
+                            htmlFor="icon_prefix5 "
+                            className="form-label mb-3"
+                        >
+                            Confirm Password
+                        </label>
+                        <div className="row mb-3">
+                            <i className="material-icons prefix col-md-1">
+                                vpn_key
+                            </i>
                             <input
                                 onChange={handleChange}
                                 value={password2}
                                 id="icon_prefix5"
-                                className="materialize-textarea"
+                                className="col-md-8"
                                 type="password"
                                 name="password2"
                             />
-                            <label htmlFor="icon_prefix5">
-                                Confirm Password
-                            </label>
                         </div>
                     </div>
 
-                    <button className="btn blue" type="submit">
+                    <button
+                        className="btn btn-success"
+                        type="submit"
+                        style={{
+                            backgroundColor: '#4285F4',
+                            borderColor: '#4285F4',
+                        }}
+                    >
                         Enviar
                     </button>
 
