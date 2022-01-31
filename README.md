@@ -9,4 +9,4 @@ Routerapp: Es una aplicacion de tarjetas con imagenes de personales de dragon ba
 
 Context-router: Es una aplicacion basica de login usando context. Deploy https://logincontextbasic.netlify.app/
 
-Redux-firebase: Es una calculadora basica de horas salariales, con registro y persistencia en base de datos Firebase, usando https://materializecss.com/ y animaciones con Animate.css https://animate.style/
+Redux-firebase: Es una calculadora basica de horas salariales, con registro y persistencia en base de datos Firebase, usando https://materializecss.com/ y animaciones con Animate.css https://animate.style/. Deploy https://calculadoranominabasic.herokuapp.com/
